@@ -1,0 +1,23 @@
+main <- function() {
+  df <- readr::read_csv(basics$get_absolute_path("src/data/build_data/df.csv")) |>
+    dplyr::select(-`...1``)
+  p2var <- vars::VAR(df, p = 2)
+  p12var <- vars::VAR(df, p = 12)
+  irf_p2var <- vars::irf(p2var, impulse = c("FF"), boot = F, n.ahead = 24)
+  irf_p12var <- vars::irf(p12var, impulse = c("FF"), boot = T, n.ahead = 24)
+}
+
+plot_ir <- function(matrix) {
+  df <- tibble::as_tibble(matrix)
+  plot <- ggplot2::ggplot(data = df, ggplot2::aes())
+}
+
+# array から IR をプロットする
+plot_ir <- function(array) {
+  length <- length(array)
+  plot <- ggplot2::ggplot(data = df, ggplot2::aes(y = array, x = 0:length)) +
+    ggplot2::geom_line()
+}
+
+box::use(functions / basics)
+main()

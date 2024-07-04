@@ -1,1 +1,1 @@
-source("renv/activate.R")
+source("src/master/initialize/master.R")
