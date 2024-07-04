@@ -11,8 +11,9 @@ main <- function() {
 
 plot_line <- function(df, y) {
   plot <- ggplot2::ggplot(data = df, ggplot2::aes(y = !!as.name(y), x = h)) +
-    ggplot2::geom_line() +
-    ggplot2::ylab(y)
+    ggplot2::geom_line(linewidth = 1) +
+    ggplot2::ylab(y) +
+    ggplot2::theme_bw()
   return(plot)
 }
 
@@ -31,7 +32,7 @@ plot_irs <- function(matrix) {
     IR_NBRX,
     IR_M2,
     nrow = 3,
-    bottom = gridtext::richtext_grob(text = '<span style="font-weight:bold">Impulse Rsponses to a shock in federal funds rate</span>')
+    bottom = gridtext::richtext_grob(text = '<span style="font-weight:bold">Impulse Rsponses to a shock in federal funds rate by VAR(2)</span>')
   )
   return(IR_COMPILE)
 }
