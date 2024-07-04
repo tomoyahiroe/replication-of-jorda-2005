@@ -20,3 +20,14 @@ In the paper, propagation of monetary policy shock is estimated based on monthly
 - M2：M2ストックの年間伸び率。
 
 
+## How to run the codes ?
+
+1. Clone this repository.
+
+`git clone https://github.com/tomoyahiroe/replication-of-jorda-2005.git`
+
+2. move to the root of this repository and run the command bellow.
+
+`Rscript src/master/admin/master.R`
+
+
